@@ -18,14 +18,16 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Webpack Plugin'
       }),
+      new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: './',
-
+        swSrc: './src/sw.js',
+        swDest: 'service-worker.js',
       }),
     ],
 
