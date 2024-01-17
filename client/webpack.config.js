@@ -36,11 +36,13 @@ module.exports = () => {
         theme_color: '#7eb4e2',
         start_url: './',
         publicPath: './',
+        fingerprints: false,
+        inject: true,
         icons: [
           {
-            src: path.resolve('./src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('src', 'images'),
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
@@ -51,10 +53,6 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader','css-loader'],
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
         },
         {
           test: /\.m?js$/,
